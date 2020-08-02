@@ -451,3 +451,35 @@ $ git log -S function_name
 </td>
   </tr>
 </table>
+
+على سبيل المثال ، إذا كنت ترغب في معرفة أي commits قامت بتعديل ملفات الاختبار في محفوظات كود Git وتم تنفيذها بواسطة Junio Hamano في شهر أكتوبر 2008 ولم يتمفيها عمليات الدمج :
+
+<div dir="ltr" align="left">
+
+
+```git
+$ git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" \
+   --before="2008-11-01" --no-merges -- t/
+```
+
+</div>
+
+
+ستحصل على هذه المخرجات:
+
+<div dir="ltr" align="left">
+
+
+```git
+5610e3b - Fix testcase failure when extended attributes are in use
+acd3b9e - Enhance hold_lock_file_for_{update,append}() API
+f563754 - demonstrate breakage of detached checkout with symbolic link HEAD
+d1a43f2 - reset --hard/read-tree --reset -u: remove unmerged new paths
+51a94af - Fix "checkout --track -b newbranch" on detached HEAD
+b0ad11e - pull: allow "git pull origin $something:$current_branch" into an unborn branch
+ 
+ ```
+
+</div>
+
+</div>
