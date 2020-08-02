@@ -482,4 +482,6 @@ b0ad11e - pull: allow "git pull origin $something:$current_branch" into an unbor
 
 </div>
 
+حوالي 40000 commits في تاريخ كود Git ، يعرض هذا الأمر الستة التي تطابق تلك المعايير.
+
 </div>
