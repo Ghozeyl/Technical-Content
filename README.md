@@ -291,3 +291,89 @@ a11bef0 - Scott Chacon, 6 years ago : Initial commit
     <td>الموضوع</td>
   </tr>
 </table>
+
+
+قد تتساءل ما هو الفرق بين المؤلف والمنفذ. المؤلف هو الشخص الذي كتب العمل في الأصل ، في حين أن المنفذ هو الشخص الذي قام بتطبيق العمل آخر مرة. لذا ، إذا قمت بإرسال تصحيحًا إلى أحد المشاريع وقام أحد الأعضاء الأساسيين بتطبيق التصحيح ، فتصبح أنت المؤلف ، والعضو هو المنفذ.قد 
+
+خيار `format` و `oneline` تستخدم مع خيار أخر وهو `--graph`. يضيف هذا الخيار رسمًا بيانيًا لطيفًا صغيرًا لـ ASCII يُظهر الفروع وعمليات الدمج كما في المثال:
+
+<div dir="ltr" align="left">
+
+
+```git
+$ git log --pretty=format:"%h %s" --graph
+```
+
+</div>
+
+ستحصل على هذه المخرجات:
+
+<div dir="ltr" align="left">
+
+
+```git
+* 2d3acf9 Ignore errors from SIGCHLD on trap
+*  5e3ee11 Merge branch 'master' of git://github.com/dustin/grit
+|\
+| * 420eac9 Add method for getting the current branch
+* | 30e367c Timeout code and tests
+* | 5a09431 Add timeout protection to grit
+* | e1193f8 Support for heads with slashes in them
+|/
+* d6016bc Require time for xmlschema
+*  11d191e Merge branch 'defunkt' into local
+ 
+ ```
+
+</div>
+
+وهذا النوع من المخرجات يصبح مفيداً عندما يكون هناك فروع وعمليات دمج.
+
+الجدول ادناه يحتوي على الخيارات الاكثر استخداماً مع git log
+
+<table style="width:80%">
+     <tr>
+    <th>الخيار</th>
+    <th>الوصف</th>
+  </tr>
+  <tr>
+    <th>-p</th>
+    <th>عرض patch المقدمة مع كل commit.</th>
+  </tr>
+  <tr>
+    <td>--stat</td>
+    <td>عرض إحصائيات الملفات المعدلة في كل commit.</td>
+  </tr>
+  <tr>
+    <td>--shortstat</td>
+    <td>عرض سطر التغيير / الإضافة / الحذف من الأمر --stat.</td>
+  </tr>
+     <tr>
+    <th>--name-only</th>
+    <th>عرض قائمة الملفات المعدلة بعد معلوماتcommit </th>
+  </tr>
+  <tr>
+    <td>--name-status</td>
+    <td>عرض قائمة الملفات المتأثرة بالمعلومات المضافة / المعدلة / المحذوفة .</td>
+  </tr>
+      <tr>
+    <th>--abbrev-commit</th>
+    <th>عرض قليل من  الأحرف الأولى من SHA-1 checksum بدلاً من الأربعين.</th>
+  </tr>
+  <tr>
+    <td>--relative-date</td>
+    <td>عرض التاريخ بتنسيق نسبي (على سبيل المثال ، "قبل أسبوعين") بدلاً من استخدام تنسيق التاريخ بالكامل.</td>
+  </tr>
+  <tr>
+    <td>--graph</td>
+    <td>عرض الرسم البياني ASCII للفروع وعمليات الدمج بجانب مخرجات log .</td>
+  </tr>
+     <tr>
+    <th>--pretty</th>
+    <th>إظهار commits بتنسيق بديل.وهناك خيارات مثل oneline ، short، full، fuller ، و format (حيث تتيح لك ان تحدد التنسيق الخاص بك).</th>
+  </tr>
+  <tr>
+    <td>--oneline</td>
+    <td>تجمع بين الامرين --pretty=oneline و --abbrev-commit</td>
+  </tr>
+</table>
